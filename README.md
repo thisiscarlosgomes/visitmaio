@@ -16,11 +16,10 @@ pnpm build
 
 Copy the required deployment secrets into a local `.env.local` file or configure them in the hosting project. Never commit that file. The app uses `MONGODB_URI` and `MONGODB_DB` for place and analytics data, `OPENAI_API_KEY` for chat, and optional provider credentials for voice and data management scripts.
 
-## Deployment migration
+## Deployment
 
-1. Build and inspect a preview deployment, including `/`, `/places`, `/experiences`, `/api/places`, `/api/mcp`, and the service worker/offline assets.
-2. Deploy the verified commit to the `visitmaio` Vercel project, which is connected to this repository and has the Guide environment variables.
-3. Move the public Guide domains from the old `guide` Vercel project to `visitmaio` only after the new deployment is ready and the routes pass checks. Keep the old project available for rollback during the cutover.
-4. Once production is confirmed, remove the old `apps/guide` workspace from `maioazul` and its root `*:guide` scripts. The Maio API already imports its own checked-in copy of the four Guide datasets; update that copy when Guide editorial data changes.
+Pushing `main` deploys this repository to the `visitmaio` Vercel project. The production domains are `www.visit-maio.com`, `www.visitmaio.com`, and `guide.maioazul.com`; `visitmaio.com` redirects to `www.visitmaio.com`.
+
+The previous `guide` Vercel project retains its last working deployment for rollback, with future builds skipped. The old `apps/guide` workspace has been removed from `maioazul`. The Maio API imports its own checked-in copy of four Guide datasets; update that copy when editorial data changes, then run its data sync.
 
 This repository was created from the `apps/guide` Git history.
