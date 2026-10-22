@@ -1,4 +1,4 @@
-# Maio Guide
+# VisitMaio
 
 Standalone Next.js app for [visit-maio.com](https://www.visit-maio.com).
 
@@ -21,4 +21,4 @@ Copy the required deployment secrets into a local `.env.local` file or configure
 3. Switch production deployments to this repository after the preview passes. Keep `www.visit-maio.com` on the same hosting project so public URLs stay stable.
 4. Once production is confirmed, remove the old `apps/guide` workspace from `maioazul` and its root `*:guide` scripts. The Maio API already imports its own checked-in copy of the four Guide datasets; update that copy when Guide editorial data changes.
 
-This repository was created from the `apps/guide` Git history. It has no remote until one is explicitly configured.
+This repository was created from the `apps/guide` Git history.
